@@ -16,3 +16,66 @@ body {
 a:link, a:visited, a:hover, a:active {
   text-decoration: none;
 }
+
+.header {
+  border-bottom: 1px solid #000;
+  height: 80px;
+  line-height: 80px;
+}
+
+.container {
+  margin: 0 auto;
+  width: 960px;
+}
+
+.site-title {
+  display: inline-block;
+  font-size: 3.2rem;
+  line-height: 80px;
+}
+
+.hamburger-menu-btn {
+  display: none;
+}
+
+.global-nav {
+  display: inline-block;
+  float: right;
+  vertical-align: middle;
+}
+
+.global-nav .nav-item {
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .header {
+    position: relative;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0 30px;
+  }
+
+  .site-title {
+    font-size: 2.4rem;
+  }
+
+  .hamburger-menu-btn {
+    border: 1px solid #000;
+    border-radius: 5px;
+    display: inline-block;
+    height: 30px;
+    width: 40px;
+    position: absolute;
+    top: 0;
+    right: 30px;
+    bottom: 0;
+    margin: auto;
+  }
+
+  .global-nav {
+    display: none;
+  }
+}
