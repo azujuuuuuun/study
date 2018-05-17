@@ -43,6 +43,11 @@ export default class App extends React.Component {
     });
   }
 
+  removeToDo(id) {
+    this.setState({
+      todos: this.state.todos.filter(todo => todo.id !== id),
+    });
+  }
 
   render() {
     return (
@@ -51,7 +56,7 @@ export default class App extends React.Component {
           <input type="text" value={this.state.text} onChange={(e) => this.onChange(e)} />
           <button onClick={(e) => this.addToDo(e)}>+</button>
         </form>
-        <ToDoList todos={this.state.todos} toggleToDo={(id) => this.toggleToDo(id)} />
+        <ToDoList todos={this.state.todos} toggleToDo={(id) => this.toggleToDo(id)} removeToDo={(id) => this.removeToDo(id)} />
       </div>
     );
   }
