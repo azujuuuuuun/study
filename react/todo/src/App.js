@@ -31,17 +31,18 @@ export default class App extends React.Component {
     });
   }
 
-  toggleToDo(i) {
+  toggleToDo(id) {
     this.setState({
       todos: this.state.todos.map((todo) => {
         const t = todo;
-        if (t.id === i) {
+        if (t.id === id) {
           t.isCompleted = !t.isCompleted;
         }
         return t;
       }),
     });
   }
+
 
   render() {
     return (
@@ -50,7 +51,7 @@ export default class App extends React.Component {
           <input type="text" value={this.state.text} onChange={(e) => this.onChange(e)} />
           <button onClick={(e) => this.addToDo(e)}>+</button>
         </form>
-        <ToDoList todos={this.state.todos} toggleToDo={(i) => this.toggleToDo(i)} />
+        <ToDoList todos={this.state.todos} toggleToDo={(id) => this.toggleToDo(id)} />
       </div>
     );
   }
