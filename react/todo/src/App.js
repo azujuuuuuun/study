@@ -50,7 +50,7 @@ export default class App extends React.Component {
           <input type="text" value={this.state.text} onChange={(e) => this.onChange(e)} />
           <button onClick={(e) => this.addToDo(e)}>+</button>
         </form>
-        <ToDoList todos={this.state.todos} /*toggleToDo={(i) => this.toggleToDo(i)}*//>
+        <ToDoList todos={this.state.todos} toggleToDo={(i) => this.toggleToDo(i)} />
       </div>
     );
   }
