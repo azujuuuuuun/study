@@ -1,8 +1,17 @@
+// @flow
 import React from 'react';
 import ToDoList from './ToDoList';
 
-export default class App extends React.Component {
-  constructor(props) {
+type stateType = {
+  text: string,
+  todos: Array<Object>,
+  id: number,
+  visibleToDos: Array<Object>,
+  filter: string,
+};
+
+export default class App extends React.Component<void, stateType> {
+  constructor(props: void) {
     super(props);
     this.state = {
       text: '',
@@ -13,20 +22,21 @@ export default class App extends React.Component {
     };
   }
 
-  onChange(e) {
+  onChange(e: Event) {
+    const target: Object = e.target;
     this.setState({
-      text: e.target.value,
+      text: target.value,
     })
   }
 
-  addToDo(e) {
+  addToDo(e: Event) {
     e.preventDefault();
     const todo = {
       id: this.state.id,
       text: this.state.text,
       isCompleted: false,
     };
-    const newState = {
+    const newState: Object = {
       text: '',
       todos: this.state.todos.concat(todo),
       id: this.state.id + 1,
@@ -37,7 +47,7 @@ export default class App extends React.Component {
     this.setState(newState);
   }
 
-  toggleToDo(id) {
+  toggleToDo(id: number) {
     const newToDos = this.state.todos.map((todo) => {
       const t = todo;
       if (t.id === id) {
@@ -59,14 +69,14 @@ export default class App extends React.Component {
     });
   }
 
-  removeToDo(id) {
+  removeToDo(id: number) {
     this.setState({
       todos: this.state.todos.filter(todo => todo.id !== id),
       visibleToDos: this.state.visibleToDos.filter(todo => todo.id !== id),
     });
   }
 
-  changeFilter(filter) {
+  changeFilter(filter: string) {
     const newToDos = this.state.todos;
     let newVisibleToDos = [];
     if (filter === 'all') {

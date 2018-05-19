@@ -1,6 +1,14 @@
+// @flow
 import React from 'react';
 
-function ToDo(props) {
+type propsType = {
+  text: string,
+  isCompleted: boolean,
+  toggleToDo: Function,
+  removeToDo: Function,
+};
+
+function ToDo(props: propsType) {
   const {
     text,
     isCompleted,
