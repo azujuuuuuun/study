@@ -8,3 +8,11 @@ if [ $number_of_ssh_agent = 0 ]; then
   ssh-add -K '~/.ssh/id_rsa'
 fi
 ```
+
+ssh-agentをkill
+```.zlogout
+$number_of_shell=$(echo `ps -ef | grep zsh | grep -v grep | wc -l`)
+if [ $number_of_shell = 1]; then
+  ssh-agent -k
+fi
+```
